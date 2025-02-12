@@ -13,8 +13,9 @@ export const NewItemForm = ({ onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log(onSubmit)
     if (typeof onSubmit === 'function') {
+      console.log("entrou")
       onSubmit(name, price);
     }
 
@@ -46,7 +47,9 @@ export const NewItemForm = ({ onSubmit }) => {
         </Box>
         <Button
           disabled={!isValid()}
-          onClick={handleSubmit}
+          onClick={(e) => {
+            handleSubmit(e)
+          }}
           type="submit"
           fullWidth
           variant="primary"
